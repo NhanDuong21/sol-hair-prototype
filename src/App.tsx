@@ -12,6 +12,7 @@ import { BookingSummaryPage } from './pages/BookingSummaryPage';
 import { BookingSuccessPage } from './pages/BookingSuccessPage';
 import { AppointmentsPage } from './pages/AppointmentsPage';
 import { AccountPage } from './pages/AccountPage';
+import { HomePage } from './pages/HomePage';
 
 // Scroll to top helper on route transition
 const ScrollToTop = () => {
@@ -32,8 +33,8 @@ export const App: React.FC = () => {
 
           <main className="flex-1">
             <Routes>
-              {/* Root redirect to /services */}
-              <Route path="/" element={<Navigate to="/services" replace />} />
+              {/* Editorial homepage */}
+              <Route path="/" element={<HomePage />} />
 
               {/* Service Discovery & Detail */}
               <Route path="/services" element={<ServicesPage />} />
@@ -50,7 +51,7 @@ export const App: React.FC = () => {
               <Route path="/account" element={<AccountPage />} />
 
               {/* Fallback */}
-              <Route path="*" element={<Navigate to="/services" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
 

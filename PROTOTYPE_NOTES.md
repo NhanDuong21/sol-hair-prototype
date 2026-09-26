@@ -1,7 +1,7 @@
 # Sol Hair Studio — Frontend UI/UX Prototype Documentation
 
 > **Notice for Codex Review & Handoff:**  
-> This frontend prototype intentionally contains no backend/database/API integration. Codex will review and refine this implementation before it is integrated into the main Sol Hair Studio project.
+> This frontend prototype contains no production backend or database. It includes a local-only Vite development middleware for the experimental NewsData.io editorial section; this is not a production API integration.
 
 ---
 
@@ -23,7 +23,7 @@
 
 | Route | Screen Name | Key Purpose & Interactions |
 | :--- | :--- | :--- |
-| `/` | Root Redirect | Automatically redirects to `/services`. |
+| `/` | **Editorial Homepage** | Salon-first entry point with hero, a 3-service preview, brand experience, hair inspiration articles, and booking CTA. |
 | `/services` | **Service Discovery (Primary Target)** | Replicates `services-reference.png`: hero banner, category filter pills (`Tất cả`, `Cắt tóc`, `Nhuộm`, `Uốn / Duỗi`, `Chăm sóc`), 6-service editorial grid, right-hand featured panel (`Nhuộm nâu trà sữa` with benefits and signature). |
 | `/services/:serviceId` | **Service Detail** | Editorial composition with high-resolution imagery, expected duration, pricing, *Bao gồm* breakdown, and CTA *Chọn stylist* → `/booking/stylist`. |
 | `/booking/stylist` | **Choose Stylist** | Editorial stylist profile cards for Minh Anh, Gia Hân, and Khánh Linh; includes *Sol chọn giúp* option for automated stylist assignment. |
@@ -40,6 +40,10 @@
 ```
 src/
 ├── components/
+│   ├── editorial/
+│   │   ├── HairNewsSection.tsx     # Live/news fallback editorial section
+│   │   ├── HairArticleCard.tsx     # Normalized internal or external article link
+│   │   └── HairNewsSkeleton.tsx    # Editorial loading placeholders
 │   ├── layout/
 │   │   ├── AppHeader.tsx         # Sticky desktop header with active indicator & mobile drawer
 │   │   ├── MobileNavigation.tsx  # Bottom navigation bar for mobile viewports (<768px)
@@ -55,6 +59,7 @@ src/
 │   │   └── TimeSlotPicker.tsx    # Morning/afternoon time-slot selector
 │   └── common/
 ├── pages/
+│   ├── HomePage.tsx                # Editorial salon homepage
 │   ├── ServicesPage.tsx          # Primary target screen
 │   ├── ServiceDetailPage.tsx     # Editorial service detail
 │   ├── StylistSelectionPage.tsx  # Stylist choice & "Sol chọn giúp"
@@ -152,6 +157,7 @@ As instructed in the project boundaries:
 - ❌ No real authentication infrastructure (OAuth / JWT / Supabase).
 - ❌ No Docker configurations.
 - ❌ No connection to the real Sol Hair Studio production API.
+- NewsData.io is only called through a local Vite development middleware; this is not a production backend.
 - ❌ No heavy component libraries (MUI, Ant Design, default shadcn cliches).
 
 ---
@@ -203,10 +209,22 @@ npm run preview
 
 - Booking and appointment records persist in browser `localStorage`; the profile and seeded appointments are mock data.
 - Appointment confirmation records locally and uses payment at the salon. There is no live availability, customer authentication, reminder delivery, or payment processing.
-- No backend, database, or API calls were added.
+- No production backend, database, or Sol production API is connected.
 
 ### Validation
 
 - `npm run build` passes (TypeScript check and Vite production build).
 - No lint script is configured in `package.json`.
 - The prototype journey was reviewed from service detail through stylist, time, summary, success, and appointments. `/account` was also reviewed.
+
+## Hair News Prototype Integration
+
+- NewsData.io is an experimental source for the homepage's “Xu hướng & cảm hứng” editorial section.
+- The local browser requests `GET /__prototype-api/hair-news`. A Vite dev-server middleware reads `NEWSDATA_API_KEY`, calls NewsData.io's `latest` endpoint, applies a hair relevance filter, and returns normalized articles. NewsData.io describes this endpoint as covering recent articles from the past 48 hours.
+- The NewsData request uses the `q` query parameter with targeted Vietnamese and English hair terms. The response mapper validates article links, drops unrelated items, and maps the remaining fields to the provider-independent `HairArticle` type in `src/services/hairNews/hairNews.types.ts`.
+- `src/services/hairNews/hairNews.client.ts` shares one in-flight request and caches successful results in `sessionStorage` for 45 minutes.
+- If the key is missing, NewsData.io is unavailable, the query returns no relevant articles, or a request fails, the section displays clearly labeled mock editorial entries from `hairNews.mock.ts`. Missing article images fall back to a local Sol image.
+- Put a local key in `.env.local` as `NEWSDATA_API_KEY=your_key_here`, then restart `npm run dev` so Vite reloads the environment. `.env.local` is ignored by Git. `.env.example` contains only an empty variable name and must never contain a real key.
+- Start the prototype with `npm run dev`. The NewsData proxy is available only in Vite's development server; it is not included in the production build. A NewsData key is not currently configured in this workspace, so the local keyless fallback is the verified content path.
+
+For production, hair-news retrieval must move behind the Sol Hair Studio backend. The current Vite middleware exists only for the frontend prototype.

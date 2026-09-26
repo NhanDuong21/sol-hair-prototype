@@ -10,7 +10,7 @@ export const MobileNavigation: React.FC = () => {
 
   const isCurrentActive = (path: string) => {
     if (path === '/services') {
-      return location.pathname === '/' || location.pathname.startsWith('/services');
+      return location.pathname.startsWith('/services');
     }
     if (path === '/booking/stylist') {
       return location.pathname.startsWith('/booking');

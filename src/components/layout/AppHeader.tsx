@@ -19,7 +19,7 @@ export const AppHeader: React.FC = () => {
 
   const isCurrentActive = (path: string) => {
     if (path === '/services') {
-      return location.pathname === '/' || location.pathname.startsWith('/services');
+      return location.pathname.startsWith('/services');
     }
     if (path === '/booking/stylist') {
       return location.pathname.startsWith('/booking');
@@ -33,7 +33,7 @@ export const AppHeader: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Brand Identity / Logo */}
           <Link
-            to="/services"
+            to="/"
             className="flex items-center gap-3.5 group"
             aria-label="Sol Hair Studio Home"
           >
