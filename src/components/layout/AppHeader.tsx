@@ -37,11 +37,11 @@ export const AppHeader: React.FC = () => {
             className="flex items-center gap-3.5 group"
             aria-label="Sol Hair Studio Home"
           >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-soft-surface border border-border/80 flex items-center justify-center p-1 group-hover:border-terracotta/40 transition-colors">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full border border-terracotta/20 bg-soft-surface shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-terracotta/50 sm:h-11 sm:w-11">
               <img
                 src="/sol-logo.png"
                 alt="Sol Hair Studio Logo"
-                className="w-full h-full object-contain"
+                className="absolute left-[-53.33%] top-[-21.67%] h-[206.67%] w-[206.67%] max-w-none object-cover"
               />
             </div>
             <div className="flex flex-col">
