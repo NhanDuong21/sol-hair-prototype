@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
@@ -53,7 +54,7 @@ export const ServicesPage: React.FC = () => {
             <div className="lg:col-span-5 xl:col-span-5 relative hidden sm:block">
               <div className="relative rounded-3xl overflow-hidden aspect-[16/10] lg:aspect-[4/3] bg-soft-surface shadow-soft border border-border/70">
                 <img
-                  src="/images/hero-model.png"
+                  src={assetUrl('images/hero-model.png')}
                   alt="Sol Hair Studio Model"
                   className="w-full h-full object-cover img-editorial-zoom"
                 />
@@ -123,7 +124,7 @@ export const ServicesPage: React.FC = () => {
             <div className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[390px]" aria-label="Không gian chăm sóc tóc tại Sol">
               <div className="absolute inset-x-0 top-0 h-[84%] w-[84%] overflow-hidden rounded-[28px_88px_28px_28px] bg-canvas shadow-soft">
                 <img
-                  src="/images/services/detail-cut.jpg"
+                  src={assetUrl('images/services/detail-cut.jpg')}
                   alt="Stylist đang tạo kiểu tóc trong salon"
                   className="h-full w-full object-cover img-editorial-zoom"
                   loading="lazy"
@@ -131,7 +132,7 @@ export const ServicesPage: React.FC = () => {
               </div>
               <div className="absolute bottom-0 right-0 h-[48%] w-[46%] overflow-hidden rounded-3xl border-[6px] border-soft-surface bg-canvas shadow-soft-lg">
                 <img
-                  src="/images/services/detail-spa.jpg"
+                  src={assetUrl('images/services/detail-spa.jpg')}
                   alt="Mái tóc được chăm sóc mềm mượt"
                   className="h-full w-full object-cover img-editorial-zoom"
                   loading="lazy"

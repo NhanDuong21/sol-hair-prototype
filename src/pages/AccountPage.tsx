@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User, Phone, Mail, Sparkles, Scissors, Bell } from 'lucide-react';
@@ -22,7 +23,7 @@ export const AccountPage: React.FC = () => {
             <div className="relative">
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-soft-surface border-2 border-terracotta/30 flex items-center justify-center p-1.5 shadow-soft">
                 <img
-                  src="/sol-logo.png"
+                  src={assetUrl('sol-logo.png')}
                   alt="Sol Avatar"
                   className="w-full h-full object-contain rounded-full"
                 />

@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import { Service, Stylist, Appointment, UserProfile, CategoryFilterItem } from '../types';
 
 export const CATEGORIES: CategoryFilterItem[] = [
@@ -24,8 +25,8 @@ export const SERVICES: Service[] = [
       'Cắt thiết kế layer & cấu trúc tóc',
       'Sấy tạo phom và hướng dẫn chăm sóc tại nhà',
     ],
-    image: '/images/service-1.png',
-    detailImage: '/images/services/detail-cut.jpg',
+    image: assetUrl('images/service-1.png'),
+    detailImage: assetUrl('images/services/detail-cut.jpg'),
   },
   {
     id: 'nhuom-thoi-trang',
@@ -42,8 +43,8 @@ export const SERVICES: Service[] = [
       'Nhuộm chuẩn ánh sắc với màu nhập khẩu',
       'Xả dưỡng chuyên sâu khóa hạt màu và tạo kiểu',
     ],
-    image: '/images/service-2.png',
-    detailImage: '/images/services/detail-color.jpg',
+    image: assetUrl('images/service-2.png'),
+    detailImage: assetUrl('images/services/detail-color.jpg'),
   },
   {
     id: 'hair-spa-phuc-hoi',
@@ -60,8 +61,8 @@ export const SERVICES: Service[] = [
       'Ủ hấp dưỡng chất nano nạp protein & ceramide',
       'Massage bấm huyệt lưu thông tuần hoàn vùng vai gáy',
     ],
-    image: '/images/service-3.png',
-    detailImage: '/images/services/detail-spa.jpg',
+    image: assetUrl('images/service-3.png'),
+    detailImage: assetUrl('images/services/detail-spa.jpg'),
   },
   {
     id: 'uon-nhe-tu-nhien',
@@ -78,8 +79,8 @@ export const SERVICES: Service[] = [
       'Nạp dưỡng chất phục hồi liên kết tóc',
       'Sấy bồng bềnh và hướng dẫn dưỡng sóng',
     ],
-    image: '/images/service-4.png',
-    detailImage: '/images/services/detail-perm.jpg',
+    image: assetUrl('images/service-4.png'),
+    detailImage: assetUrl('images/services/detail-perm.jpg'),
   },
   {
     id: 'duoi-bong-muot',
@@ -96,8 +97,8 @@ export const SERVICES: Service[] = [
       'Căn chỉnh nhiệt độ là tóc theo cấu trúc sợi',
       'Ủ phủ bóng nano dưỡng mềm tức thì',
     ],
-    image: '/images/service-5.png',
-    detailImage: '/images/services/detail-straight.jpg',
+    image: assetUrl('images/service-5.png'),
+    detailImage: assetUrl('images/services/detail-straight.jpg'),
   },
   {
     id: 'combo-cat-duong',
@@ -114,8 +115,8 @@ export const SERVICES: Service[] = [
       'Liệu trình ủ dưỡng collagen tái tạo tế bào',
       'Massage đầu thư giãn và sấy phồng hoàn thiện',
     ],
-    image: '/images/service-6.png',
-    detailImage: '/images/services/detail-combo.jpg',
+    image: assetUrl('images/service-6.png'),
+    detailImage: assetUrl('images/services/detail-combo.jpg'),
   },
   {
     id: 'nhuom-nau-tra-sua',
@@ -132,8 +133,8 @@ export const SERVICES: Service[] = [
       'Phủ sắc nâu sữa với công thức độc quyền Sol',
       'Khóa màu biểu bì & sấy bồng bềnh chuẩn salon',
     ],
-    image: '/images/service-1.png',
-    detailImage: '/images/service-1.png',
+    image: assetUrl('images/service-1.png'),
+    detailImage: assetUrl('images/service-1.png'),
     isFeatured: true,
     highlightNote: 'Gợi ý hôm nay — Dành cho những ai muốn thay đổi diện mạo nhẹ nhàng nhưng vẫn giữ được nét riêng.',
   },
@@ -147,7 +148,7 @@ export const STYLISTS: Stylist[] = [
     experience: '8 năm kinh nghiệm',
     focus: 'Cắt & tạo kiểu',
     bio: 'Thế mạnh lớn nhất là tạo những đường cắt layer bay bổng, am hiểu cấu trúc gương mặt Châu Á và luôn lắng nghe cẩn trọng mong muốn của khách hàng.',
-    avatar: '/images/stylists/minh-anh.jpg',
+    avatar: assetUrl('images/stylists/minh-anh.jpg'),
     rating: 4.9,
   },
   {
@@ -157,7 +158,7 @@ export const STYLISTS: Stylist[] = [
     experience: '6 năm kinh nghiệm',
     focus: 'Nhuộm & balayage',
     bio: 'Đam mê các tone màu pastel, nâu lạnh và kỹ thuật balayage chuyển sắc mượt mà. Đạt nhiều chứng chỉ colorist chuyên nghiệp từ L’Oréal & Wella.',
-    avatar: '/images/service-2.png',
+    avatar: assetUrl('images/service-2.png'),
     rating: 5.0,
   },
   {
@@ -167,7 +168,7 @@ export const STYLISTS: Stylist[] = [
     experience: '5 năm kinh nghiệm',
     focus: 'Hair spa & phục hồi',
     bio: 'Chuyên gia phục hồi tóc hư tổn do uốn nhuộm nhiều lần. Kỹ thuật massage bấm huyệt da đầu chuẩn spa Đông y mang lại trải nghiệm thư giãn tuyệt đối.',
-    avatar: '/images/services/detail-spa.jpg',
+    avatar: assetUrl('images/services/detail-spa.jpg'),
     rating: 4.9,
   },
 ];
@@ -189,7 +190,7 @@ export const INITIAL_APPOINTMENTS: Appointment[] = [
     price: 450000,
     formattedPrice: '450.000đ',
     status: 'upcoming',
-    serviceImage: '/images/service-1.png',
+    serviceImage: assetUrl('images/service-1.png'),
     createdAt: '2026-09-20T10:00:00Z',
   },
   {
@@ -208,7 +209,7 @@ export const INITIAL_APPOINTMENTS: Appointment[] = [
     price: 600000,
     formattedPrice: '600.000đ',
     status: 'completed',
-    serviceImage: '/images/service-3.png',
+    serviceImage: assetUrl('images/service-3.png'),
     createdAt: '2026-08-28T14:15:00Z',
   },
 ];

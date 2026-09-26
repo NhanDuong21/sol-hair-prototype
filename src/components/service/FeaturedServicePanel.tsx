@@ -1,3 +1,4 @@
+import { assetUrl } from '../../utils/assetUrl';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Star, Feather, ArrowRight } from 'lucide-react';
@@ -55,7 +56,7 @@ export const FeaturedServicePanel: React.FC = () => {
       <div className="mt-5 rounded-2xl overflow-hidden bg-surface border border-border/60 shadow-soft">
         <div className="aspect-[16/10] overflow-hidden bg-subtle-surface">
           <img
-            src="/images/service-1.png"
+            src={assetUrl('images/service-1.png')}
             alt="Mái tóc nhuộm nâu trà sữa óng mượt"
             className="w-full h-full object-cover img-editorial-zoom"
             loading="lazy"

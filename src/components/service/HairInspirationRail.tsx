@@ -1,14 +1,15 @@
+import { assetUrl } from '../../utils/assetUrl';
 import React, { useRef } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { RevealOnScroll } from '../common/RevealOnScroll';
 
 const looks = [
-  { title: 'Nâu trà sữa', label: 'Màu sắc · Tự nhiên', image: '/images/services/detail-milktea.jpg', serviceId: 'nhuom-nau-tra-sua' },
-  { title: 'Layer mềm mại', label: 'Cắt & tạo kiểu', image: '/images/services/detail-cut.jpg', serviceId: 'cat-va-tao-kieu' },
-  { title: 'Sóng tóc thư thái', label: 'Uốn · Vào nếp', image: '/images/services/detail-perm.jpg', serviceId: 'uon-nhe-tu-nhien' },
-  { title: 'Chăm tóc bóng khỏe', label: 'Hair spa · Phục hồi', image: '/images/services/detail-spa.jpg', serviceId: 'hair-spa-phuc-hoi' },
-  { title: 'Màu nhuộm thời trang', label: 'Nhuộm · Tôn da', image: '/images/services/detail-color.jpg', serviceId: 'nhuom-thoi-trang' },
+  { title: 'Nâu trà sữa', label: 'Màu sắc · Tự nhiên', image: assetUrl('images/services/detail-milktea.jpg'), serviceId: 'nhuom-nau-tra-sua' },
+  { title: 'Layer mềm mại', label: 'Cắt & tạo kiểu', image: assetUrl('images/services/detail-cut.jpg'), serviceId: 'cat-va-tao-kieu' },
+  { title: 'Sóng tóc thư thái', label: 'Uốn · Vào nếp', image: assetUrl('images/services/detail-perm.jpg'), serviceId: 'uon-nhe-tu-nhien' },
+  { title: 'Chăm tóc bóng khỏe', label: 'Hair spa · Phục hồi', image: assetUrl('images/services/detail-spa.jpg'), serviceId: 'hair-spa-phuc-hoi' },
+  { title: 'Màu nhuộm thời trang', label: 'Nhuộm · Tôn da', image: assetUrl('images/services/detail-color.jpg'), serviceId: 'nhuom-thoi-trang' },
 ];
 
 export const HairInspirationRail: React.FC = () => {

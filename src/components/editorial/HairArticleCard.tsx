@@ -1,9 +1,10 @@
+import { assetUrl } from '../../utils/assetUrl';
 import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { HairArticle } from '../../services/hairNews/hairNews.types';
 
-const FALLBACK_IMAGE = '/images/services/detail-cut.jpg';
+const FALLBACK_IMAGE = assetUrl('images/services/detail-cut.jpg');
 
 const formatDate = (value: string) => {
   const date = new Date(value);

@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -22,7 +23,7 @@ export const DateTimeSelectionPage: React.FC = () => {
   const currentService = selectedService || SERVICES[0];
   const isAnyStylist = selectedStylist === 'any' || !selectedStylist;
   const currentStylist = isAnyStylist
-    ? { name: 'Sol chọn giúp (Stylist phù hợp)', title: 'Chuyên viên chỉ định', avatar: '/sol-logo.png' }
+    ? { name: 'Sol chọn giúp (Stylist phù hợp)', title: 'Chuyên viên chỉ định', avatar: assetUrl('sol-logo.png') }
     : (selectedStylist as Stylist);
 
   const activeDate = selectedDate || '2026-10-17';

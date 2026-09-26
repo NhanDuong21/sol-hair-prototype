@@ -56,6 +56,7 @@ export default defineConfig(({ mode, command }) => {
     : '';
 
   return {
+    base: process.env.GITHUB_ACTIONS === 'true' ? '/sol-hair-prototype/' : '/',
     plugins: [react(), hairNewsPrototypeProxy(apiKey)],
     resolve: {
       alias: {

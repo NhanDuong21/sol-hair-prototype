@@ -1,3 +1,4 @@
+import { assetUrl } from '../../utils/assetUrl';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock } from 'lucide-react';
@@ -11,7 +12,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/sol-logo.png"
+                src={assetUrl('sol-logo.png')}
                 alt="Sol Hair Studio"
                 className="w-10 h-10 object-contain rounded-full border border-border"
               />

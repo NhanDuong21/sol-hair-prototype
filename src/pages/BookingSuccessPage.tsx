@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
@@ -24,7 +25,7 @@ export const BookingSuccessPage: React.FC = () => {
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-soft-surface border border-border/80 shadow-soft mb-6 p-2">
             <img
-              src="/sol-logo.png"
+              src={assetUrl('sol-logo.png')}
               alt="Sol Hair Studio"
               className="w-full h-full object-contain"
             />

@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -35,7 +36,7 @@ export const HomePage: React.FC = () => (
 
         <RevealOnScroll className="relative lg:col-span-7" delay={100}>
           <div className="relative aspect-[1.18/1] overflow-hidden rounded-[2rem_2rem_2rem_7rem] border border-border/60 bg-soft-surface shadow-soft-lg sm:aspect-[1.42/1]">
-            <img src="/images/hero-model.png" alt="Mái tóc được tạo kiểu tự nhiên tại Sol Hair Studio" className="h-full w-full object-cover" fetchPriority="high" />
+            <img src={assetUrl('images/hero-model.png')} alt="Mái tóc được tạo kiểu tự nhiên tại Sol Hair Studio" className="h-full w-full object-cover" fetchPriority="high" />
           </div>
           <div className="absolute -bottom-4 left-4 rounded-2xl border border-border/70 bg-surface/95 px-4 py-3 shadow-soft sm:bottom-5 sm:left-5 sm:px-5">
             <span className="block text-[9px] font-semibold uppercase tracking-[0.2em] text-terracotta">Beauty shines within</span>
@@ -86,10 +87,10 @@ export const HomePage: React.FC = () => (
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-9 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <RevealOnScroll className="relative min-h-[330px] sm:min-h-[440px]">
           <div className="absolute left-0 top-0 h-[85%] w-[82%] overflow-hidden rounded-[2rem_6rem_2rem_2rem] bg-soft-surface shadow-soft">
-            <img src="/images/services/detail-spa.jpg" alt="Khoảnh khắc thư giãn trong liệu trình chăm sóc tóc" loading="lazy" className="h-full w-full object-cover img-editorial-zoom" />
+            <img src={assetUrl('images/services/detail-spa.jpg')} alt="Khoảnh khắc thư giãn trong liệu trình chăm sóc tóc" loading="lazy" className="h-full w-full object-cover img-editorial-zoom" />
           </div>
           <div className="absolute bottom-0 right-0 h-[48%] w-[43%] overflow-hidden rounded-3xl border-[6px] border-canvas bg-soft-surface shadow-soft-lg">
-            <img src="/images/services/detail-cut.jpg" alt="Stylist chăm chút từng đường cắt" loading="lazy" className="h-full w-full object-cover img-editorial-zoom" />
+            <img src={assetUrl('images/services/detail-cut.jpg')} alt="Stylist chăm chút từng đường cắt" loading="lazy" className="h-full w-full object-cover img-editorial-zoom" />
           </div>
           <span className="absolute bottom-[15%] left-4 rounded-full bg-surface/95 px-4 py-2 text-xs font-medium tracking-wide text-text-primary shadow-soft-sm">Một nghi thức nhỏ, dành cho bạn</span>
         </RevealOnScroll>

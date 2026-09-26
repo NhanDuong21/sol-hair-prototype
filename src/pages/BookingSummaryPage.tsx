@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assetUrl';
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Clock, Calendar, MapPin, CheckCircle, ArrowLeft } from 'lucide-react';
@@ -15,7 +16,7 @@ export const BookingSummaryPage: React.FC = () => {
   const currentService = selectedService || SERVICES[0];
   const currentStylist = selectedStylist && selectedStylist !== 'any'
     ? selectedStylist as Stylist
-    : { name: 'Sol chọn giúp', title: 'Chuyên viên chỉ định', avatar: '/sol-logo.png' };
+    : { name: 'Sol chọn giúp', title: 'Chuyên viên chỉ định', avatar: assetUrl('sol-logo.png') };
   const chosenDateStr = selectedDate || '2026-10-17';
   const date = new Date(`${chosenDateStr}T00:00:00`);
   const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];

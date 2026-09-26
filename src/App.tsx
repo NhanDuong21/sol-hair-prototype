@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 export const App: React.FC = () => {
   return (
     <BookingProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-canvas text-text-primary selection:bg-terracotta/20 selection:text-terracotta-dark pb-16 lg:pb-0">
           <AppHeader />

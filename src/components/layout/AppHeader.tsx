@@ -1,3 +1,4 @@
+import { assetUrl } from '../../utils/assetUrl';
 import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { User, Menu, X } from 'lucide-react';
@@ -39,7 +40,7 @@ export const AppHeader: React.FC = () => {
           >
             <div className="relative h-10 w-10 overflow-hidden rounded-full border border-terracotta/20 bg-soft-surface shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-terracotta/50 sm:h-11 sm:w-11">
               <img
-                src="/sol-logo.png"
+                src={assetUrl('sol-logo.png')}
                 alt="Sol Hair Studio Logo"
                 className="absolute left-[-53.33%] top-[-21.67%] h-[206.67%] w-[206.67%] max-w-none object-cover"
               />
