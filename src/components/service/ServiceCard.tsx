@@ -18,15 +18,17 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     navigate('/booking/stylist');
   };
 
-  const handleViewDetail = () => {
-    navigate(`/services/${service.id}`);
-  };
-
   return (
     <article
-      className="group bg-surface rounded-2xl border border-border/70 hover:border-terracotta/40 p-3.5 sm:p-4 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
+      className="group relative flex flex-col rounded-2xl border border-border/70 bg-surface p-3.5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-terracotta/40 hover:shadow-soft-lg sm:p-4"
     >
-      <div>
+      <Link
+        to={`/services/${service.id}`}
+        aria-label={`Xem chi tiết dịch vụ ${service.name}`}
+        className="absolute inset-0 z-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+      />
+
+      <div className="relative z-10 pointer-events-none">
         {/* Hair Image */}
         <div className="relative aspect-[16/9.5] rounded-xl overflow-hidden bg-soft-surface">
           <img
@@ -40,9 +42,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         {/* Content */}
         <div className="pt-3.5">
           <h3 className="font-serif text-lg sm:text-xl font-medium text-text-primary group-hover:text-terracotta transition-colors leading-snug">
-            <Link to={`/services/${service.id}`} className="rounded-sm">
             {service.name}
-            </Link>
           </h3>
           <p className="mt-1 text-xs sm:text-[13px] text-text-secondary leading-relaxed line-clamp-2 min-h-[36px]">
             {service.shortDescription}
@@ -61,7 +61,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           {service.formattedPrice}
         </span>
 
-        <div className="flex flex-col items-end gap-1 shrink-0">
+        <div className="relative z-20 flex shrink-0 flex-col items-end gap-1">
           <button
             type="button"
             onClick={handleBookNow}
@@ -69,17 +69,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           >
             Đặt lịch
           </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleViewDetail();
-            }}
+          <Link
+            to={`/services/${service.id}`}
             className="button-ghost h-8 px-1 text-[13px] whitespace-nowrap group/link"
           >
             <span>Xem chi tiết</span>
             <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
-          </button>
+          </Link>
         </div>
       </div>
     </article>

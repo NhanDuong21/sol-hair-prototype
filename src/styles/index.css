@@ -62,8 +62,66 @@
   transform: scale(1.03);
 }
 
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms cubic-bezier(0.2, 0.65, 0.3, 1), transform 650ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hair-inspiration-rail {
+  scrollbar-width: thin;
+  scrollbar-color: #c4b8a9 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.services-marquee {
+  overflow: hidden;
+  border-block: 1px solid rgba(155, 73, 54, 0.18);
+  background: rgba(243, 236, 227, 0.72);
+}
+.services-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: services-marquee 38s linear infinite;
+}
+.services-marquee:hover .services-marquee-track {
+  animation-play-state: paused;
+}
+.services-marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: clamp(1.25rem, 4vw, 4rem);
+  padding: 1rem clamp(1.25rem, 4vw, 4rem) 1rem 0;
+}
+.services-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
+  white-space: nowrap;
+  color: #756e69;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.services-marquee-item::after {
+  content: '✳';
+  color: #9b4936;
+  font-size: 0.8rem;
+}
+@keyframes services-marquee {
+  to { transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .reveal-on-scroll { opacity: 1; transform: none; }
+  .services-marquee-track { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
